@@ -51,5 +51,62 @@ In other words, 𝛼 = P ( accept H<sub>1</sub> | if H<sub>0</sub> is **true** )
 > w1<-rep(1,n1)
 > w1
  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 
+> w2<-rep(1,n2)
+> w2
+ [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 
+> xbar<-sum(x*w1)/n1
+> xbar
+[1] 250.8187
+
+> ybar<-sum(y*w2)/n2
+> ybar
+[1] 210.625
+
+> mx2<-sum((x^2)*w1)/n1
+> mx2
+[1] 74959.94
+
+> varx<-mx2-(xbar^2)
+> varx
+[1] 12049.89
+
+> sx<-(n1*varx)/(n1-1)
+> sx
+[1] 12853.22
+
+> my2<-sum((y^2)*w2)/n2
+> my2
+[1] 61266.78
+
+> vary<-my2-(ybar^2)
+> vary
+[1] 16903.89
+
+> sy<-(n2*vary)/(n2-1)
+> sy
+[1] 18030.82
+
+> fobs<-sx/sy
+> fobs
+[1] 0.7128472
+
+> c<-qf(1-0.05,n1-1,n2-1)
+> c
+[1] 2.403447
+
+> tobs<-(xbar-ybar)/sqrt((n1-1)*sx+(n2-1)*sy)*sqrt((n1*n2*(n1+n2-2)/(n1+n2)))
+> tobs
+[1] 0.9148534
+
+> c<-qt(1-0.05,n1+n2-2)
+> c
+[1] 1.697261
 ```
 
+- If F<sub>obs</sub> = 0.7128472 and F(c) = 1.697261, then F<sub>obs</sub> < F(c).
+- σ<sub>𝑥</sub> ≠ σ<sub>y</sub>, where σ<sub>𝑥</sub> = sx = 12853.22 and σ<sub>y</sub> = sy = 18030.82.
+- 𝜇<sub>𝑥</sub> ≠ 𝜇<sub>y</sub>, where 𝜇<sub>𝑥</sub> = mx2 = 74959.94 and 𝜇<sub>y</sub> = my2 = 61266.78.
+
+In conclusion, we accept the alternative hypothesis, since the parameters 𝜇<sub>𝑥</sub> and 𝜇<sub>y</sub> differ significantly as proved above in *R*.
