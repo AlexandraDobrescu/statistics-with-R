@@ -2,7 +2,7 @@
 Evaluate statistical models on:
 - regression tasks, 
 - find confidence region for random variables with normal distribution,
-- chi-square distribution.\
+- chi-square distribution.
 
 Perform a test of homogeneity.
 
